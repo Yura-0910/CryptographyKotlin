@@ -1,0 +1,31 @@
+#cd /home/source/srcCode/Cryptography001/
+#python3 Polybius.py
+
+def polybius():
+   source  = [
+              ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З'],
+              ['И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р'],
+              ['С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ'],
+              ['Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', '0', '1', '2'],
+              [3, 4, 5, 6, 7, 8, 9, 0]
+             ]
+   replace = [
+              [11, 12, 13, 14, 15, 16, 17, 18, 19],
+              [20, 21, 22, 23, 24, 25, 26, 27, 28],
+              [29, 30, 31, 32, 33, 34, 35, 36, 37],
+              [38, 39, 40, 41, 42, 43, 44, 45, 46],
+              [47, 48, 49, 50, 51, 52, 53, 54]
+             ]  
+   my_map = {}            
+   for row1, row2 in zip(source, replace):
+      for element1, element2 in zip(row1, row2):
+         #Заполняем Map
+         my_map[element1] = element2
+   data = input("Введите данные: ")
+   result = "" 
+   for char in data:
+      code = my_map.get(char.upper())
+      result += str(code)
+   print(result)   
+   
+polybius()
